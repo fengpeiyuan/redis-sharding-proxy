@@ -16,7 +16,7 @@ If you have Go environment ready::
 
     go get github.com/fengpeiyuan/redis-sharding-proxy
 
-Otherwise install Go and set up environment::
+Otherwise install Go and set up environment:
 
     $ mkdir $HOME/go
     $ export GOPATH=$HOME/go
@@ -27,7 +27,7 @@ After that you can run ``redis-sharding-proxy``.
 Using
 -----
 
-``redis-sharding-proxy`` accepts several options::
+``redis-sharding-proxy`` accepts several options:
 
   -master-host="masterhost"     Master Redis host
   -master-port=6379             Master Redis port
@@ -36,14 +36,15 @@ Using
   -slave-host="slavehost"       Slave redis host.
   -slave-port=6381              Slave redis port.
 
-Connect string is given as below::
+Connect string is given as below:
 
     host1:port1,host2:port2,...,hostn:portn
 
 Example
 -------
 
-Assume master host 192.168.0.1 port is 10000, we can divided it into five redis instances using five sharding proxy below::
+Assume master host 192.168.0.1 port is 10000, we can divided it into five redis instances using five sharding proxy below:
+
 proxy1: 192.168.0.2:11001
 proxy1: 192.168.0.2:11002
 proxy1: 192.168.0.2:11003
@@ -51,6 +52,7 @@ proxy1: 192.168.0.2:11004
 proxy1: 192.168.0.2:11005
 
 We launch these five proxy using::
+
 ./redis-sharding-proxy -master-host=192.168.0.1 -master-port=10000 -proxy-host=192.168.0.2 -proxy-port=11001 -slave-host=192.168.0.3 -slave-port=10001 192.168.0.3:10001,192.168.0.3:10002,192.168.0.3:10003,192.168.0.3:10004,192.168.0.3:10005
 
 ./redis-sharding-proxy -master-host=192.168.0.1 -master-port=10000 -proxy-host=192.168.0.2 -proxy-port=11002 -slave-host=192.168.0.3 -slave-port=10002 192.168.0.3:10001,192.168.0.3:10002,192.168.0.3:10003,192.168.0.3:10004,192.168.0.3:10005
@@ -62,6 +64,7 @@ We launch these five proxy using::
 ./redis-sharding-proxy -master-host=192.168.0.1 -master-port=10000 -proxy-host=192.168.0.2 -proxy-port=11005 -slave-host=192.168.0.3 -slave-port=10005 192.168.0.3:10001,192.168.0.3:10002,192.168.0.3:10003,192.168.0.3:10004,192.168.0.3:10005
 
 Five slaves are::
+
 slave1: 192.168.0.3:10001 then type slaveof 192.168.0.2 11001
 slave1: 192.168.0.3:10002 then type slaveof 192.168.0.2 11002
 slave1: 192.168.0.3:10003 then type slaveof 192.168.0.2 11003
