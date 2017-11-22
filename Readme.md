@@ -46,9 +46,13 @@ Example
 Assume master host 192.168.0.1 port is 10000, we can divided it into five redis instances using five sharding proxy below:
 
 proxy1: 192.168.0.2:11001
+
 proxy1: 192.168.0.2:11002
+
 proxy1: 192.168.0.2:11003
+
 proxy1: 192.168.0.2:11004
+
 proxy1: 192.168.0.2:11005
 
 We launch these five proxy using::
@@ -66,10 +70,15 @@ We launch these five proxy using::
 Five slaves are::
 
 slave1: 192.168.0.3:10001 then type slaveof 192.168.0.2 11001
+
 slave1: 192.168.0.3:10002 then type slaveof 192.168.0.2 11002
+
 slave1: 192.168.0.3:10003 then type slaveof 192.168.0.2 11003
+
 slave1: 192.168.0.3:10004 then type slaveof 192.168.0.2 11004
+
 slave1: 192.168.0.3:10005 then type slaveof 192.168.0.2 11005
+
 
 
 
